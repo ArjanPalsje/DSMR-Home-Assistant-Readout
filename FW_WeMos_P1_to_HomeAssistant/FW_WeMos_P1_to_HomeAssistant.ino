@@ -5,11 +5,11 @@
 
 #define P1_SERIAL_PORT Serial
 
-#include <Arduino.h>
+#include <Arduino.h>      //Inculded with esp8266 package
 #include "update.h"
-#include <ESP8266WiFi.h>
-#include <WiFiManager.h>
-#include <ESP8266mDNS.h>
+#include <ESP8266WiFi.h>  // Included with esp8266 package
+#include <WiFiManager.h>  // https://github.com/tzapu/WiFiManager
+#include <ESP8266mDNS.h>  // Included with esp8266 package
 
 //Kies een Poort nummer, in dit geval 23
 WiFiServer server(23);
@@ -32,6 +32,7 @@ void setup() {
   digitalWrite(RGB_G_PIN, HIGH);
   digitalWrite(RGB_B_PIN, HIGH);
 
+  //Hold the button on the PCB to reset the Wi-Fi Settings
   if (digitalRead(RST_PIN) == LOW) {
     delay(2000);
     if (digitalRead(RST_PIN) == LOW) {
@@ -43,7 +44,7 @@ void setup() {
         pulseColor(RGB_R_PIN);
         wm.resetSettings();
         delay(1000);
-        pulseColor(RGB_G_PIN);
+        pulseColor(RGB_G_PIN);  //Hold the button until it pulses green
         delay(1000);
       }
     }
@@ -70,7 +71,6 @@ void setup() {
 
 
   digitalWrite(RGB_B_PIN, LOW);
-
 
   wm.autoConnect("Smart Meter Wi-Fi Setup");
 
@@ -178,7 +178,7 @@ void loop() {
   }
 
   static unsigned long prevUpdateCheck = millis();
-  //Check every day for a software update
+  //Check every day for a firmware update
   if (millis() - prevUpdateCheck > 24 * 3600 * 1000) {
     handleFWUpdate();
   }

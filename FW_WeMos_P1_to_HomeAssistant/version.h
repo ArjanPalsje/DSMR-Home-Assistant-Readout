@@ -1,3 +1,7 @@
 String CURRENT_FW_VERSION = {"5.6"};
-//C:\Users\Arjan Pals\OneDrive - Avans Hogeschool\Avans\P1 Poort Project\SmartMeterSEnDLabGithub\DSMR-Home-Assistant-Readout
-//C:\Users\Arjan Pals\OneDrive - Avans Hogeschool\Avans\P1 Poort Project\SendLabSlimmeMeterProject\Software_WeMos_Fancier\build\esp8266.esp8266.d1_mini_clone
+
+
+#define URL_fw_Ver "https://raw.githubusercontent.com/ArjanPalsje/DSMR-Home-Assistant-Readout/main/LATEST_FW_VERSION.txt"
+
+#define URL_fw_Bin "https://github.com/ArjanPalsje/DSMR-Home-Assistant-Readout/raw/main/FW_WeMos_P1_to_HomeAssistant.ino.bin"
+

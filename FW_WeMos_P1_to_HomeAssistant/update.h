@@ -8,8 +8,6 @@ BearSSL::CertStore certStore;
 
 #include "version.h"
 
-#define URL_fw_Bin "https://github.com/ArjanPalsje/DSMR-Home-Assistant-Readout/raw/main/FW_WeMos_P1_to_HomeAssistant.ino.bin"
-
 
 // DigiCert High Assurance EV Root CA
 const char trustRoot[] PROGMEM = R"EOF(
@@ -98,7 +96,7 @@ double getLatestFWVersion() {
   client.setInsecure();
 
    HTTPClient http;
-   http.begin(client, "https://raw.githubusercontent.com/ArjanPalsje/DSMR-Home-Assistant-Readout/main/LATEST_FW_VERSION.txt");
+   http.begin(client, URL_fw_Ver);
  
   if(http.GET() == 200)
   {
